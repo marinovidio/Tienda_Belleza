@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tienda_Belleza.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Cosmeticos Belleza" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label x:Name="Title" Text="Agregar Productos" FontSize="Title" Padding="30,10,30,10"/>
+        <Entry x:Name="txtIdProducto" IsVisible="False"/>
+        <Entry x:Name="txtNombre" Placeholder="Nombre del producto"/>
+        <Entry x:Name="txtPrecio" Placeholder="Precio del producto"/>
+        <Entry x:Name="txtCantidad" Placeholder="Cantidad del producto"/>
+        <Entry x:Name="txtIdCompra" IsVisible="False"/>
+        <Entry x:Name="txtComprador" Placeholder="Nombre cliente" IsVisible="False"/>
+        <Entry x:Name="txtNombreCompra" Placeholder="Nobre del producto" IsVisible="False"/>
+        <Entry x:Name="txtCantidadcompra" Placeholder="Cantidad a Compra" IsVisible="False"/>
+        <Button x:Name="btningresar" Text="Ingresar Producto" Clicked="btningresar_Clicked" BackgroundColor="#317C27" TextColor="White" />
+        <Button x:Name="btnComprar" Text="Realizar compra" Clicked="btnComprar_Clicked" BackgroundColor="#3B0B2E" TextColor="White" IsVisible="False"/>
+        <Button x:Name="btnActualizar" Text="Actulizar Producto" Clicked="BtnActualizar_Clicked" BackgroundColor="#011968" TextColor="White" IsVisible="False"/>
+        <Button x:Name="btnEliminar" Text="Eliminar" BackgroundColor="#9D0514" TextColor="White" Clicked="TexEliminar_Clicked" IsVisible="False"/>
+        <ListView x:Name="lstPrdoducto" ItemSelected="LstPrdoducto_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding IdProducto}" Grid.Column="0" TextColor="Gray"/>
+                            <Label Text="{Binding Nombre}" Grid.Column="1" TextColor="Gray"/>
+                            <Label Text="{Binding Precio}" Grid.Column="2" TextColor="Gray"/>
+                            <Label Text="{Binding Cantidad}" Grid.Column="3" TextColor="Gray"/>
+                            <Button x:Name="btnComprarcolum" Text="Comprar" Grid.Column="4" FontSize="10" BackgroundColor="#0B6121" HorizontalOptions="Center" Clicked="btnComprarcolum_Clicked" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>
